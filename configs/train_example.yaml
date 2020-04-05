@@ -1,0 +1,35 @@
+paths_file: configs/paths_example.yaml
+dataset_names: []
+
+batch_size: 8
+batch_size_val: 8
+eval_in_train: True
+
+input_format: uv_1d_p1, uv_1d_p1_ds1, uv_1d_p1_ds2, uv_1d_p1_ds3, uv_1d_p1_ds4
+# use_mask: True
+
+epochs: 40
+save_freq: 1
+save_dir: data/logs
+simple_name: True
+
+net_ckpt: downloads/weights/01-09_07-29-34___scannet/UNet_stage_0_epoch_39_net.pth
+
+splitter_module: npbg.datasets.splitter.split_by_ratio
+splitter_args:
+    train_ratio: 0.9
+
+train_dataset_args:
+    keep_fov: False
+    random_zoom: [0.5, 2.0]
+    random_shift: [-1., 1.]
+    drop_points: 0.0
+    num_samples: 2000
+
+val_dataset_args:
+    keep_fov: False
+    drop_points: 0.0
+
+criterion_module: npbg.criterions.vgg_loss.VGGLoss
+criterion_args:
+    partialconv: false

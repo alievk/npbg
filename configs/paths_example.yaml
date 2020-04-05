@@ -1,0 +1,7 @@
+datasets:
+    "scene":
+        scene_path: scene.yaml
+        target_path: images_undistorted
+        target_name_func: "lambda i: f'{i}.png'"
+        # mask_path: masks_undistorted
+        # mask_name_func: "lambda i: f'{i}.png'"
