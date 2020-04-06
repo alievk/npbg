@@ -496,8 +496,6 @@ if __name__ == '__main__':
         print('FREEZE NET')
         freeze(pipeline.get_net(), True)
 
-    save_pipeline(pipeline, '/tmp', 39, 0, args)
-
     if args.eval:
         loss = run_eval(0, pipeline, args, iter_cb)
         print('VAL LOSS', loss)
