@@ -64,7 +64,7 @@ by Brandon Blizard, https://www.tested.com/art/makers/460057-tested-dark-art-pho
 
 This is the algorithm which works in most situations:
 
-1. Choose a camera, set it in **manual mode** (for smartphone &mdash; via using OpenCamera), make sure you are using the highest quality, and all strange or extreme compression/enhancement algorithms are disabled. 
+1. Choose a camera, set it in **manual mode** (for Android smartphone &mdash; via using [OpenCamera](https://opencamera.org.uk/)), make sure you are using the highest quality, and all strange or extreme compression/enhancement algorithms are disabled. 
 2. Make sure to set **fast shutter speed** to avoid motion blur (1/200 -- 1/400 s is usually enough, depending on how fast you walk during shooting).
 3. Set **low enough ISO** which does not give you too noticeable noise under zoom-in. You need to take a few shots to find its critical ISO levels of your camera.
 4. Set **F-value to the largest possible** (depending on distance to objects and your camera, it can be F6.3, F9 or larger value), such that the brightness is normal and the picture does not become too dark. Depth-of-field should at least fully cover the object of shooting.
