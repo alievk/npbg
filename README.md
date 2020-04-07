@@ -140,7 +140,7 @@ where `<my_scene>.yaml` is the scene configuration file created in the point clo
   * If possible, use soft diffused light;
   * Avoid dark shadows;
   
-  If you are using a smarthone with Android, OpenCamera may come handy. A good starting point for settings is f/8, ISO 300, shutter speed 1/125s. iPhone users are recommended to fix exposure in the Camera. Follow this [guide]("docs/Shooting best practices.md") for more recommendations.
+  If you are using a smarthone with Android, OpenCamera may come handy. A good starting point for settings is f/8, ISO 300, shutter speed 1/125s. iPhone users are recommended to fix exposure in the Camera. Follow this [guide](https://github.com/alievk/npbg/blob/master/docs/Shooting%20best%20practices.md) for more recommendations.
 * Viewer performance. If Pytorch and X server run on different GPUs there will be extra data transfer overhead between two GPUs. If higher framerate is desirable, make sure they run on the same GPU (use `CUDA_VISIBLE_DEVICES`).
 * Pytorch crash on train. there is a known issue when Pytorch crashes on backward pass if there are different GPUs, f.e. GeForce GTX 1080 Ti and GeForce RTX 2080 Ti. Use `CUDA_VISIBLE_DEVICES` to mask GPU.
 
