@@ -18,7 +18,10 @@ pip install \
     trimesh \
     huepy \
     "pillow<7" \
-    tqdm
+    tqdm \
+    scikit-learn
+
+conda install opencv
 
 # need to install separately
 pip install \
