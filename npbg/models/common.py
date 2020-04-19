@@ -2,17 +2,19 @@ import torch
 import torch.nn as nn
 
 
-def norm(num_features, tp='bn', **kwargs):
-    if tp == 'bn':
-        return nn.BatchNorm2d(num_features, **kwargs)
-    elif tp == 'in':
-        return nn.InstanceNorm2d(num_features, **kwargs)
-    elif tp == 'none':
-        return Identity()
+def get_norm_layer(name='bn', **kwargs):
+    if name == 'bn':
+        return nn.BatchNorm2d
+    elif name == 'in':
+        return nn.InstanceNorm2d
+    elif name == 'none':
+        return Identity
+    else:
+        raise ValueError(f'{norm_layer} not supported')
 
 
 class Identity(nn.Module):
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         super(Identity, self).__init__()
 
     def forward(self, x):

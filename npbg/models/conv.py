@@ -4,68 +4,6 @@ from torch import nn, cuda
 from torch.autograd import Variable
 
 
-def conv(in_f, out_f, kernel_size, stride=1, bias=True, pad='zero', downsample_mode='stride', conv_class=nn.Conv2d):
-    downsampler = None
-    if stride != 1 and downsample_mode != 'stride':
-
-        if downsample_mode == 'avg':
-            downsampler = nn.AvgPool2d(stride, stride)
-        elif downsample_mode == 'max':
-            downsampler = nn.MaxPool2d(stride, stride)
-        elif downsample_mode  in ['lanczos2', 'lanczos3']:
-            downsampler = Downsampler(n_planes=out_f, factor=stride, kernel_type=downsample_mode, phase=0.5, preserve_size=True)
-        else:
-            assert False
-
-        stride = 1
-
-    padder = None
-    to_pad = int((kernel_size - 1) / 2)
-    if pad == 'reflection' and to_pad != 0:
-        padder = nn.ReflectionPad2d(to_pad)
-        to_pad = 0
-  
-    convolver = conv_class(in_f, out_f, kernel_size, stride, padding=to_pad, bias=bias)
-
-    # print (layers22)
-    layers = filter(lambda x: x is not None, [padder, convolver, downsampler])
-    # print (layers)
-    return nn.Sequential(*layers)
-
-
-class GatedConv2d(nn.Module):
-    def __init__(self, in_features, out_features, filter_size=3, stride=1, dilation=1,
-                 padding_mode='reflect', normalization=nn.BatchNorm2d, act_fun=nn.ELU):
-        super().__init__()
-        self.pad_mode = padding_mode
-        self.filter_size = filter_size
-        self.stride = stride
-        self.dilation = dilation
-
-        self.conv_f = nn.Conv2d(in_features, out_features, filter_size, stride=stride, dilation=dilation)
-        if normalization is not None:
-            self.norm = normalization(out_features)
-        else:
-            self.norm = None
-        self.act_f = act_fun()
-
-        self.conv_m = nn.Conv2d(in_features, out_features, filter_size, stride=stride, dilation=dilation)
-        self.act_m = nn.Sigmoid()
-
-    def forward(self, x):
-        n_pad_pxl = int(self.dilation * (self.filter_size - 1) / 2)
-        n_pad_by_sides = (n_pad_pxl, n_pad_pxl, n_pad_pxl, n_pad_pxl)
-        x_padded = F.pad(x, n_pad_by_sides, mode=self.pad_mode)
-
-        features = self.act_f(self.conv_f(x_padded))
-        mask = self.act_m(self.conv_m(x_padded))
-        output = features * mask
-        if self.norm is not None:
-            output = self.norm(output)
-
-        return output
-
-
 ###############################################################################
 # BSD 3-Clause License
 #

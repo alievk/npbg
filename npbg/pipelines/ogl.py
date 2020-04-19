@@ -23,10 +23,8 @@ def get_net(input_channels, args):
         feature_scale=args.net_size, 
         more_layers=0, 
         upsample_mode='bilinear', 
-        pad='zeros', 
         norm_layer='bn', 
         last_act='', 
-        need_bias=True, 
         conv_block=args.conv_block
         )
 
