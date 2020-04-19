@@ -1,8 +1,8 @@
 # Neural Point-Based Graphics
 
-### <img align=center src=./docs/images/project.png width='32'/> [Project](link) &ensp; <img align=center src=./docs/images/video.png width='24'/> [Video](link) &ensp; <img align=center src=./docs/images/paper.png width='24'/> [Paper](link)
+### <img align=center src=./docs/images/project.png width='32'/> [Project](https://saic-violet.github.io/npbg) &ensp; <img align=center src=./docs/images/video.png width='24'/> [Video](https://youtu.be/2uIe4iD4gSY) &ensp; <img align=center src=./docs/images/paper.png width='24'/> [Paper](https://arxiv.org/abs/1906.08240v3)
 
-[Neural Point-Based Graphics](link)<br>
+[Neural Point-Based Graphics](https://arxiv.org/abs/1906.08240v3)<br>
 [Kara-Ali Aliev](https://github.com/alievk)<sup>1</sup> &nbsp;
 [Artem Sevastopolsky](https://scholar.google.com/citations?user=fTSCTYQAAAAJ&hl=en)<sup>1,2</sup> &nbsp;
 [Maria Kolos](https://github.com/mvkolos)<sup>1,2</sup> &nbsp;
@@ -131,16 +131,16 @@ where `<my_scene>.yaml` is the scene configuration file created in the point clo
 
 * Reconstruction failure and geometry misalignment. Taking photos for photogrammetry is the most critical part in the whole pipeline. Follow these recommendations to have a good reconstruction:
   * Set the highest quality in the camera settings;
-  * Keep the object in focus, don't set f-stop too high;
-  * Fix shutter speed, the lower the better, but don't underexpose the photo;
+  * Keep the object in focus, don't set f-stop too low;
+  * Fix shutter speed, the faster the better, but don't underexpose the photo;
   * Photos must be bright enough, but don't overexpose the photo;
   * Keep ISO low enough as it may introduce noise;
   * Keep the objects still, remove moving parts from the scene;
-  * Take photos with at least 50% overlap;
+  * Take photos with at least 70% overlap;
   * If possible, use soft diffused light;
   * Avoid dark shadows;
   
-  If you are using a smarthone with Android, OpenCamera may come handy. A good starting point for settings is f/8, ISO 400, shutter speed 1/30. iPhone users are recommended to fix exposure in the Camera. Follow this [guide]() for more recommendations.
+  If you are using a smarthone with Android, OpenCamera may come handy. A good starting point for settings is f/8, ISO 300, shutter speed 1/125s. iPhone users are recommended to fix exposure in the Camera. Follow this [guide](https://github.com/alievk/npbg/blob/master/docs/Shooting%20best%20practices.md) for more recommendations.
 * Viewer performance. If Pytorch and X server run on different GPUs there will be extra data transfer overhead between two GPUs. If higher framerate is desirable, make sure they run on the same GPU (use `CUDA_VISIBLE_DEVICES`).
 * Pytorch crash on train. there is a known issue when Pytorch crashes on backward pass if there are different GPUs, f.e. GeForce GTX 1080 Ti and GeForce RTX 2080 Ti. Use `CUDA_VISIBLE_DEVICES` to mask GPU.
 
@@ -153,4 +153,13 @@ This is what we want to implement as well. We would also highly appreciate the h
 
 ## Citation
 
-TODO
+```
+@article{Аliev2020,
+    title={Neural Point-Based Graphics},
+    author={Kara-Ali Aliev and Artem Sevastopolsky and Maria Kolos and Dmitry Ulyanov and Victor Lempitsky},
+    year={2020},
+    eprint={1906.08240v3},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+```
