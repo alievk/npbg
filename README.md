@@ -4,7 +4,7 @@
 
 [Neural Point-Based Graphics](https://arxiv.org/abs/1906.08240v3)<br>
 [Kara-Ali Aliev](https://github.com/alievk)<sup>1</sup> &nbsp;
-[Artem Sevastopolsky](https://scholar.google.com/citations?user=fTSCTYQAAAAJ&hl=en)<sup>1,2</sup> &nbsp;
+[Artem Sevastopolsky](https://seva100.github.io)<sup>1,2</sup> &nbsp;
 [Maria Kolos](https://github.com/mvkolos)<sup>1,2</sup> &nbsp;
 [Dmitry Ulyanov](https://dmitryulyanov.github.io/about)<sup>3</sup> &nbsp;
 [Victor Lempitsky](http://sites.skoltech.ru/compvision/members/vilem/)<sup>1,2</sup> <br>
@@ -96,7 +96,7 @@ bash metashape.sh -r <npbg>/scripts/metashape_build_cloud.py <my_scene>
 where `<npbg>` is the path to NPBG sources, `<my_scene>` is directory with `images` subdirectory with your scene images.
 
 The script will produce:
-* `point_cloud.obj`: dense point cloud
+* `point_cloud.ply`: dense point cloud
 * `cameras.xml`: camera registration data
 * `images_undistorted`: undistorted images for descriptor fitting
 * `project.psz`: Metashape project
