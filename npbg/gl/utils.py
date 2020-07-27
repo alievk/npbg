@@ -428,7 +428,7 @@ def import_model3d(model_path, uv_order=None, is_mesh=False):
         model['faces'] = data.faces.flatten().astype(np.uint32)
     else:
         if hasattr(data, 'colors'):
-            model['rgb'] = data.colors[0][:, :3] / 255.
+            model['rgb'] = data.colors[:, :3] / 255.
         else:
             try:
                 model['rgb'] = data.visual.vertex_colors[:, :3] / 255.
