@@ -127,6 +127,25 @@ python viewer.py --config <my_scene>.yaml --checkpoint data/logs/<experiment>/ch
 ```
 where `<my_scene>.yaml` is the scene configuration file created in the point cloud reconstruction stage, `--checkpoint` is the path to descriptors checkpoint and `--origin-view` option automatically moves geometry origin to the world origin for convenient navigation. You can manually assign `model3d_origin` field in `<my_scene>.yaml` for arbitrary origin transformation (see `downloads/person_1.yaml` for example).
 
+## Guidelines for fitting novel scenes
+
+Fitting novel scenes can sometimes be tricky, most often due to the preparation of camera poses that are provided in different ways by different sources, or sometimes because of the reconstruction issues (see below). We recommend checking out [this](https://github.com/alievk/npbg/issues/2) and [this](https://github.com/alievk/npbg/issues/7) issues for detailed explanations.
+
+The most important insight is related to the configs structure. There is a system of 3 configs used in NPBG:
+
+<img src="docs/images/configs structure.png" width="600">
+
+(there is another **optional** config -- *inference config*, which is essentially a *scene config* with `net_ckpt` and `texture_ckpt` parameters: paths to the network weights checkpoint and a descriptors checkpoint, respectively)
+
+To fit a new scene, one should a *scene config* `configs/my_scene_name.yaml` and a *path config* `configs/my_scene_paths.yaml` by setting absolute paths to scene configuration file, target images, and other optional parameters, such as masks. *Path config* can contain paths to images of either 1 scene or several scenes, if needed. Examples of all configs of all types can be found in the repository.
+
+## Code logic and structure
+
+Since our repository is based on a custom, specific framework, we leave the following diagram with the basic code logic. For those who wish to extend our code with additional features or try out related ideas (which we would highly appreciate), this diagram should help finding where the changes should be applied in the code. At the same time, various technical intricacies are not shown here for the sake of clarity.
+
+<img src="docs/images/code structure.png" width="900">
+
+
 ## Issues
 
 * Reconstruction failure and geometry misalignment. Taking photos for photogrammetry is the most critical part in the whole pipeline. Follow these recommendations to have a good reconstruction:
