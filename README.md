@@ -12,6 +12,8 @@
 
 <img src=docs/images/teaser.jpg width=1200>
 
+**UPD (09.02.2020)**: added a Docker container which can be executed on a headless node. See [Readme](https://github.com/alievk/npbg/tree/master/docker).
+
 ## About
 
 This is PyTorch implementation of Neural Point-Based Graphics (NPBG), a new method for realtime photo-realistic rendering of real scenes. NPBG uses a raw point cloud as the geometric representation of a scene, and augments each point with a learnable neural descriptor that encodes local geometry and appearance. A deep rendering network is learned in parallel with the descriptors, so that new views of the scene can be obtained by passing the rasterizations of a point cloud from new viewpoints through this network.
@@ -19,6 +21,8 @@ This is PyTorch implementation of Neural Point-Based Graphics (NPBG), a new meth
 <img src=docs/images/pipeline.jpg width=1200>
 
 ## Setup
+
+The following instructions describe installation of conda environment. If you wish to setup the Docker environment, see the Readme in the [docker folder](https://github.com/alievk/npbg/tree/master/docker). This way is also recommended for headless machines (without X server enabled).
 
 Run this command to install python environment using [conda](https://docs.conda.io/en/latest/miniconda.html):
 ```bash
@@ -63,7 +67,7 @@ Fitting a new scene consists of two steps:
 1. Point cloud reconstruction
 2. Fitting descriptors
 
-There is a bunch of software for point cloud reconstruction. While it is possible to adopt different softrare packages for our pipeline, we will choose Agisoft Metashape for this demonstration.
+There is a bunch of software for point cloud reconstruction. While it is possible to adopt different software packages for our pipeline, we will choose Agisoft Metashape for this demonstration.
 
 #### Point cloud reconstruction (Agisoft Metashape)
 

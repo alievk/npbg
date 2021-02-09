@@ -437,7 +437,7 @@ if __name__ == '__main__':
     parser.add('--pipeline', type=str, help='path to pipeline module')
     parser.add('--inference', action='store_bool', default=False)
     parser.add('--ignore_changed_args', type=str, nargs='+', default=['ignore_changed_args', 'save_dir', 'dataloader_workers', 'epochs', 'max_ds', 'batch_size_val'])
-    parser.add('--multigpu', action='store_bool', default=True)
+    parser.add('--multigpu', action='store_bool', default=False)
     parser.add('--dataloader_workers', type=int, default=4)
     parser.add('--max_ds', type=int, default=4, help='maximum datasets in DataLoader at the same time')
     parser.add('--reg_weight', type=float, default=0.)
