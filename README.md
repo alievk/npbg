@@ -12,7 +12,7 @@
 
 <img src=docs/images/teaser.jpg width=1200>
 
-**UPD (09.02.2020)**: added a Docker container which can be executed on a headless node. See [Readme](https://github.com/alievk/npbg/tree/master/docker).
+**UPD (09.02.2021)**: added a Docker container which can be executed on a headless node. See [Readme](https://github.com/alievk/npbg/tree/master/docker).
 
 ## About
 
