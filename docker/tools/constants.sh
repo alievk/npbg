@@ -2,7 +2,7 @@
 
 # -------------------------------------------------------
 # Constants to specify by the user:
-DATA_DIR=/Vol1/dbstore/datasets/a.sevastopolsky/npbg/data
+DATA_DIR=/your/path/to/data
 # -------------------------------------------------------
 
 # The following constants are filled in automatically:
